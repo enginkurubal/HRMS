@@ -2,6 +2,7 @@ package kodlamaio.HRMS.entities.concretes;
 
 import java.sql.Date;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -40,17 +41,17 @@ public class JobPosting {
   @Column(name = "number_of_open_position")
   private int numberOfOpenPosition;
   
-  @Column(name = "last_apply_date")
-  private Date lastApplyDate;
-  
   @Column(name = "is_active")
   private boolean isActive;
   
   @Column(name = "posted_date")
-  private LocalDate postedDate;
+  private LocalDateTime postedDate = LocalDateTime.now();
   
   @Column(name = "post_name")
   private String postName;
+  
+  @Column(name = "application_deadline")
+  private String applicationDeadline;
   
   @ManyToOne()
   @JoinColumn(name = "employer_id",insertable=false, updatable=false)

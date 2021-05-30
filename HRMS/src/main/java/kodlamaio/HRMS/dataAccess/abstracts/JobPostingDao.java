@@ -10,8 +10,9 @@ import kodlamaio.HRMS.entities.concretes.JobPosting;
 
 public interface JobPostingDao extends JpaRepository<JobPosting, Integer>{
 	
-	List<JobPosting> getByEmployer(int employerId);
+	List<JobPosting> getByEmployer(String companyName);
 	List<JobPosting> findByPostedDateOrderByPostedDate(Date postedDate);
-	
+	List<JobPosting> findByIsActive(boolean isActive);
+	List<JobPosting> findByIsActiveOrderByApplicationDeadline(boolean isActive);
 	
 }

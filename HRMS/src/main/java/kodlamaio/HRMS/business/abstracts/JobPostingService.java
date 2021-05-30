@@ -1,6 +1,6 @@
 package kodlamaio.HRMS.business.abstracts;
 
-import java.sql.Date;
+
 import java.util.List;
 
 import kodlamaio.HRMS.core.utilities.DataResult;
@@ -9,7 +9,8 @@ import kodlamaio.HRMS.entities.concretes.JobPosting;
 
 public interface JobPostingService {
 	DataResult<List<JobPosting>> getAll();
-	DataResult<List<JobPosting>> getByEmployer(int employerId);
-	DataResult<List<JobPosting>> findByPostedDateOrderByPostedDate(Date postedDate);
+	DataResult<List<JobPosting>> getByEmployer(String companyName);
+	DataResult<List<JobPosting>> findByIsActiveOrderByApplicationDeadline(String applicationDeadline);
 	Result add(JobPosting jobPosting);
+	Result delete(JobPosting jobPosting);
 }

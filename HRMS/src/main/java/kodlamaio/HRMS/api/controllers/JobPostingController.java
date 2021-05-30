@@ -3,6 +3,8 @@ package kodlamaio.HRMS.api.controllers;
 import java.sql.Date;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -13,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 import kodlamaio.HRMS.business.abstracts.JobPostingService;
 import kodlamaio.HRMS.core.utilities.DataResult;
 import kodlamaio.HRMS.core.utilities.Result;
+import kodlamaio.HRMS.core.utilities.SuccessResult;
 import kodlamaio.HRMS.entities.concretes.JobPosting;
 
 @RestController
@@ -21,7 +24,8 @@ public class JobPostingController {
 
 	
 	private JobPostingService jobPostingService;
-
+	
+	@Autowired
 	public JobPostingController(JobPostingService jobPostingService) {
 		super();
 		this.jobPostingService = jobPostingService;
@@ -37,12 +41,18 @@ public class JobPostingController {
 		return this.jobPostingService.add(jobPosting);
 	}
 	
-	@GetMapping("/getByEmployerId")
-	public DataResult<List<JobPosting>> getByEmployer(@RequestParam int employerId){
-		return this.jobPostingService.getByEmployer(employerId);
+	@GetMapping("/getByCompanyName")
+	public DataResult<List<JobPosting>> getByEmployer(@RequestParam String companyName){
+		return this.jobPostingService.getByEmployer(companyName);
 	}
 	@GetMapping("/getByPostedDate")
-	public DataResult<List<JobPosting>> findByPostedDateOrderByPostedDate(Date postedDate){
-		return this.jobPostingService.findByPostedDateOrderByPostedDate(postedDate);
+	public DataResult<List<JobPosting>> findByIsActiveOrderByApplicationDeadline(String applicationDeadline){
+		return this.jobPostingService.findByIsActiveOrderByApplicationDeadline(applicationDeadline);
+	}
+	
+	@DeleteMapping("/deletePost")
+	public Result delete(@RequestParam JobPosting jobPosting) {
+		return this.jobPostingService.delete(jobPosting);
+		
 	}
 }

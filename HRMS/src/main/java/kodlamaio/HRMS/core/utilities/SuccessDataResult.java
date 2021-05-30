@@ -1,5 +1,9 @@
 package kodlamaio.HRMS.core.utilities;
 
+import java.util.List;
+
+import kodlamaio.HRMS.entities.concretes.JobPosting;
+
 public class SuccessDataResult<T> extends DataResult<T>{
 
 	public SuccessDataResult(T data, String message) {
@@ -18,4 +22,5 @@ public class SuccessDataResult<T> extends DataResult<T>{
 	public SuccessDataResult() {
 		super(null,true);
 	}
+
 }

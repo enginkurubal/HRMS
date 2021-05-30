@@ -1,7 +1,9 @@
 package kodlamaio.HRMS.business.concretes;
 
-import kodlamaio.HRMS.business.abstracts.CityService;
+import org.springframework.stereotype.Service;
 
+import kodlamaio.HRMS.business.abstracts.CityService;
+@Service
 public class CityManager implements CityService{
 
 }

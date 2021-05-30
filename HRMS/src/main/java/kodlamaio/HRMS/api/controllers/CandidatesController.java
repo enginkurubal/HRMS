@@ -2,6 +2,7 @@ package kodlamaio.HRMS.api.controllers;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -19,7 +20,8 @@ import kodlamaio.HRMS.entities.concretes.Candidate;
 public class CandidatesController {
 	
 	private CandidateService candidateService;
-
+	
+	@Autowired
 	public CandidatesController(CandidateService candidateService) {
 		super();
 		this.candidateService = candidateService;
