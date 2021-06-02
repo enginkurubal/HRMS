@@ -1,7 +1,6 @@
 package kodlamaio.HRMS.entities.concretes;
 
-import java.sql.Date;
-import java.time.LocalDate;
+
 import java.time.LocalDateTime;
 
 import javax.persistence.Column;
@@ -11,6 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.MappedSuperclass;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
@@ -58,7 +58,7 @@ public class JobPosting {
   private Employer employer;
   
   @ManyToOne()
-  @JoinColumn(name = "id",insertable=false, updatable=false)
+  @JoinColumn(name = "city_id",insertable=false, updatable=false)
   private City city;
   
   @ManyToOne()

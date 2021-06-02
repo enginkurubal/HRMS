@@ -41,10 +41,6 @@ public class JobPostingController {
 		return this.jobPostingService.add(jobPosting);
 	}
 	
-	@GetMapping("/getByCompanyName")
-	public DataResult<List<JobPosting>> getByEmployer(@RequestParam String companyName){
-		return this.jobPostingService.getByEmployer(companyName);
-	}
 	@GetMapping("/getByPostedDate")
 	public DataResult<List<JobPosting>> findByIsActiveOrderByApplicationDeadline(String applicationDeadline){
 		return this.jobPostingService.findByIsActiveOrderByApplicationDeadline(applicationDeadline);

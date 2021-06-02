@@ -23,7 +23,7 @@ public class HrmsApplication {
     public Docket api() { 
 	   return new Docket(DocumentationType.SWAGGER_2)  
 	     .select()                                  
-	    .apis(RequestHandlerSelectors.basePackage("kodlamaio.HRMS"))                         
+	     .apis(RequestHandlerSelectors.basePackage("kodlamaio.HRMS"))                         
 	     .build(); 
 	   
     }	   
