@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
@@ -25,11 +27,14 @@ public class EmployerActivationByEmployee {
 	@Column(name = "id")
 	private int id;
 	
-	@Column(name = "employer_id")
-	private int employerId;
+
+	@OneToOne(targetEntity = Employer.class)
+	@JoinColumn(name = "employer_id",referencedColumnName = "id",nullable = false)
+	private Employer employer;
 	
-	@Column(name = "confirmed_employee_id")
-	private int confirmedEmployeeId;
+	@OneToOne(targetEntity = Employee.class)
+	@JoinColumn(name = "confirmed_employee_id",referencedColumnName = "id",nullable = false)
+	private Employee employee;
 	
 	@Column(name = "is_confirmed")
 	private boolean isConfirmed;

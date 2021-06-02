@@ -5,6 +5,7 @@ import java.time.LocalDateTime;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -53,16 +54,16 @@ public class JobPosting {
   @Column(name = "application_deadline")
   private String applicationDeadline;
   
-  @ManyToOne()
-  @JoinColumn(name = "employer_id",insertable=false, updatable=false)
+  @ManyToOne(targetEntity = Employer.class,fetch = FetchType.LAZY,optional = false)
+  @JoinColumn(name = "employer_id",referencedColumnName = "id",nullable = false)
   private Employer employer;
   
-  @ManyToOne()
-  @JoinColumn(name = "city_id",insertable=false, updatable=false)
+  @ManyToOne(targetEntity = City.class,fetch = FetchType.LAZY,optional = false)
+  @JoinColumn(name = "city_id",referencedColumnName = "id",nullable = false)
   private City city;
   
-  @ManyToOne()
-  @JoinColumn(name = "title_id",insertable=false, updatable=false)
+  @ManyToOne(targetEntity = JobTitle.class,fetch = FetchType.LAZY,optional = false)
+  @JoinColumn(name = "title_id",referencedColumnName = "id",nullable = false)
   private JobTitle jobTitle;
   
 }

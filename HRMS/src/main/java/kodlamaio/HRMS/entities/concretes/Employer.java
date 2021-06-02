@@ -10,7 +10,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import lombok.AllArgsConstructor;
@@ -29,18 +31,20 @@ public class Employer extends User {
 	@Column(name = "id")
 	private int id;
 	
+	@NotBlank(message = "Bu alan boş bırakılamaz")
 	@Column(name = "company_name")
 	private String companyName;
 	
+	@NotBlank(message = "Bu alan boş bırakılamaz")
 	@Column(name = "web_address")
 	private String webAddress;
 	
+	@NotBlank(message = "Bu alan boş bırakılamaz")
 	@Column(name = "phone_number")
 	private String phoneNumber;
 	
+	@JsonIgnore
 	@Column(name = "is_activated")
 	private boolean isActivated;
 	
-	@OneToMany(mappedBy = "employer")
-	private List<JobPosting> jobPosting;
 }
