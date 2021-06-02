@@ -40,5 +40,5 @@ public class CandidateTechnology {
 	@JsonProperty(access = Access.WRITE_ONLY)
 	@ManyToOne(targetEntity = CandidateCv.class)
 	@JoinColumn(name = "cv_id")
-	private int cvId;
+	private CandidateCv candidateCv;
 }
