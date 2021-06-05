@@ -5,11 +5,11 @@ import org.springframework.stereotype.Service;
 import kodlamaio.HRMS.core.helpers.FakeMernisService;
 import kodlamaio.HRMS.entities.concretes.Candidate;
 @Service
-public class FakeMernisAdapters implements FakeMernisService{
+public class FakeMernisManager implements FakeMernisService{
 
 	@Override
 	public boolean ifRealPerson(Candidate candidate) {
-		if(candidate.getIdentityNumber().length()!=11) {
+		if(candidate.getIdentityNumber().length() != 11 ) {
 			return false;
 		}
 		return true;

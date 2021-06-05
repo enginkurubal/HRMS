@@ -6,7 +6,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import kodlamaio.HRMS.entities.concretes.Candidate;
-import kodlamaio.HRMS.entities.concretes.Employer;
 
 @Repository
 public interface CandidateDao extends JpaRepository<Candidate, Integer> {

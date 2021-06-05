@@ -13,6 +13,7 @@ import kodlamaio.HRMS.business.abstracts.CandidateSchoolService;
 import kodlamaio.HRMS.core.utilities.DataResult;
 import kodlamaio.HRMS.core.utilities.Result;
 import kodlamaio.HRMS.entities.concretes.CandidateSchool;
+import kodlamaio.HRMS.entities.dtos.CandidateSchoolDto;
 
 @RestController
 @RequestMapping("/api/candidateSchool")
@@ -32,8 +33,14 @@ public class CandidateSchoolsController {
 	}
 	
 	@PostMapping("/add")
-	public Result add(@RequestBody CandidateSchool candidateSchool) {
-		return this.candidateSchoolService.add(candidateSchool);
+	public Result add(@RequestBody CandidateSchoolDto candidateSchoolDto) {
+		return this.candidateSchoolService.add(candidateSchoolDto);
+	}
+	
+	@GetMapping("/rderByStartedDateDesc")
+	public DataResult<List<CandidateSchoolDto>> OrderByStartedDateDesc(int id){
+		return this.candidateSchoolService.findByCandidateCvIdOrderByStartedDateDesc(id);
+		
 	}
 	
 }

@@ -39,6 +39,10 @@ public class ActivationCode {
 	@JsonIgnore
 	private boolean isConfirmed;
 	
+	@Column(name = "created_date")
+	@JsonIgnore
+	private Date createdDate;
+	
 	@Column(name = "confirmed_date")
 	@JsonIgnore
 	private Date confirmedDate;

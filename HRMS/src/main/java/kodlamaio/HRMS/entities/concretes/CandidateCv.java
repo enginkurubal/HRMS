@@ -5,7 +5,6 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -48,19 +47,22 @@ public class CandidateCv {
 	@Column(name = "is_active")
 	private boolean isActive;
 	
+	@Column(name = "cover_letter")
+	private String coverLetter;
+	
 	@ManyToOne(targetEntity = Candidate.class)
 	@JoinColumn(name = "candidate_id",referencedColumnName = "id",nullable = false)
 	private Candidate candidate;
 	
-	@OneToMany(mappedBy = "candidateCv")
+	@OneToMany(mappedBy = "candidateCv",cascade = CascadeType.ALL)
 	private List<CandidateTechnology> candidateTechnology;
 	
-	@OneToMany(mappedBy = "candidateCv")
+	@OneToMany(mappedBy = "candidateCv",cascade = CascadeType.ALL)
 	private List<CandidateLanguage> candidateLanguage;
 	
-	@OneToMany(mappedBy = "candidateCv")
+	@OneToMany(mappedBy = "candidateCv",cascade = CascadeType.ALL)
 	private List<CandidateJobExperience> candidateJobExperience;
 	
-	@OneToMany(mappedBy = "candidateCv")
+	@OneToMany(mappedBy = "candidateCv",cascade = CascadeType.ALL)
 	private List<CandidateSchool> candidateSchool;
 }

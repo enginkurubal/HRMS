@@ -2,7 +2,10 @@ package kodlamaio.HRMS.api.controllers;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -13,6 +16,7 @@ import kodlamaio.HRMS.business.abstracts.CandidateLanguageService;
 import kodlamaio.HRMS.core.utilities.DataResult;
 import kodlamaio.HRMS.core.utilities.Result;
 import kodlamaio.HRMS.entities.concretes.CandidateLanguage;
+import kodlamaio.HRMS.entities.dtos.CandidateLanguageDto;
 
 @RestController
 @RequestMapping("/api/candidateLanguages")
@@ -32,7 +36,7 @@ public class CandidateLanguagesController {
 		}
 		
 		@PostMapping("/add")
-		public Result add(@RequestBody CandidateLanguage candidateLanguage) {
-			return this.candidateLanguageService.add(candidateLanguage);
+		public ResponseEntity<?> add(@Valid @RequestBody CandidateLanguageDto candidateLanguageDto) {
+			return ResponseEntity.ok(candidateLanguageService.add(candidateLanguageDto));
 		}
 }

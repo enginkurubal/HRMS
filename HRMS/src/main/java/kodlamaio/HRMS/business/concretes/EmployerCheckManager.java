@@ -9,6 +9,8 @@ import org.springframework.stereotype.Service;
 
 import kodlamaio.HRMS.business.abstracts.EmployerCheckService;
 import kodlamaio.HRMS.core.utilities.DataResult;
+import kodlamaio.HRMS.core.utilities.ErrorResult;
+import kodlamaio.HRMS.core.utilities.Result;
 import kodlamaio.HRMS.core.utilities.SuccessDataResult;
 import kodlamaio.HRMS.core.utilities.SuccessResult;
 import kodlamaio.HRMS.dataAccess.abstracts.EmployerDao;
@@ -47,7 +49,7 @@ public class EmployerCheckManager implements EmployerCheckService{
 		if(matcher.matches()) {
        	 return true;
         }else {
-            return false;
+        	return false;
         }
 	}
 

@@ -11,7 +11,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.MappedSuperclass;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
@@ -34,10 +33,10 @@ public class JobPosting {
   private String jobDetails;
   
   @Column(name = "min_wage")
-  private double minWage;
+  private int minWage;
   
   @Column(name = "max_wage")
-  private double maxWage;
+  private int maxWage;
   
   @Column(name = "number_of_open_position")
   private int numberOfOpenPosition;

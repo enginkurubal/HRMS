@@ -7,7 +7,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
-import javax.persistence.MappedSuperclass;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 import javax.validation.constraints.Email;
@@ -48,4 +47,7 @@ public class User {
 	@Transient 										//veri tabanında sütunu oluşmayacak
 	@JsonProperty(access = Access.WRITE_ONLY)
 	private String passwordRepeat;
+	
+	@Column(name = "active")
+	private boolean active = false;
 }

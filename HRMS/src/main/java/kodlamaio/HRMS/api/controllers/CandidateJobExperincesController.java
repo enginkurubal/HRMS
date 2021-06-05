@@ -13,6 +13,7 @@ import kodlamaio.HRMS.business.abstracts.CandidateJobExperienceService;
 import kodlamaio.HRMS.core.utilities.DataResult;
 import kodlamaio.HRMS.core.utilities.Result;
 import kodlamaio.HRMS.entities.concretes.CandidateJobExperience;
+import kodlamaio.HRMS.entities.dtos.CandidateJobExperienceDto;
 
 @RestController
 @RequestMapping("/api/candidateJobExperinces")
@@ -32,7 +33,13 @@ public class CandidateJobExperincesController {
 	}
 	
 	@PostMapping("/add")
-	public Result add(@RequestBody CandidateJobExperience candidateJobExperience) {
-		return this.candidateJobExperienceService.add(candidateJobExperience);
+	public Result add(@RequestBody CandidateJobExperienceDto candidateJobExperienceDto) {
+		return this.candidateJobExperienceService.add(candidateJobExperienceDto);
+	}
+	
+	@GetMapping("/OrderByEndDateDesc")
+	public DataResult<List<CandidateJobExperienceDto>> OrderByEndDateDesc(int id){
+		return this.candidateJobExperienceService.findByCandidateCvIdOrderByEndDateDesc(id);
+		
 	}
 }
